@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Add_Name_Data</string>
+    <string name="add_Btn">ADD NAME</string>
+    <string name="name_list">No Names to Display</string>
+    <string name="input">Enter Name</string>
+
+</resources>
