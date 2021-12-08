@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Final_Assignment</string>
+    <string name="image">delete</string>
+    <string name="personName">Enter Name</string>
+    <string name="personNumber">Enter Number</string>
+    <string name="add">ADD</string>
+    <string name="find">FIND</string>
+    <string name="asc">ASC</string>
+    <string name="desc">DESC</string>
+</resources>
