@@ -10,7 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerAdapter(private val personItemLayout: Int) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private var ContactList: List<Person>? = null
-    var name = ""
+
+    var listener: onItemCickListener? = null
+
+    fun settingListener(listener: onItemCickListener){
+        this.listener = listener
+    }
+
+    interface onItemCickListener{
+        fun onClick(string: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(personItemLayout, parent,false)
@@ -21,11 +30,13 @@ class RecyclerAdapter(private val personItemLayout: Int) : RecyclerView.Adapter<
         ContactList.let {
             holder.itemName.text = it!![position].personName
             holder.itemPhone.text = it!![position].personNumber
-
-            holder.delete.setOnClickListener{
-                name = holder.itemName.text.toString()
-            }
+            holder.itemId.text = it!![position].id.toString()
         }
+
+        holder.delete.setOnClickListener(View.OnClickListener {
+            var id = holder.itemId.text.toString()
+            listener?.onClick(id)
+        })
     }
 
     fun setContactList(contacts: List<Person>){
@@ -41,8 +52,10 @@ class RecyclerAdapter(private val personItemLayout: Int) : RecyclerView.Adapter<
         var itemName: TextView
         var itemPhone: TextView
         var delete: ImageView
+        var itemId: TextView
 
         init {
+            itemId = itemView.findViewById(R.id.ContactId)
             itemName = itemView.findViewById(R.id.name)
             itemPhone = itemView.findViewById(R.id.number)
             delete = itemView.findViewById(R.id.delete)

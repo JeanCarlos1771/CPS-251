@@ -12,36 +12,42 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="111dp">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="10dp">
+            android:layout_height="25dp"
+            android:layout_margin="10dp"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/personName"
-                android:hint="@string/personName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:ems="10"
-                android:textSize="18sp"/>
+                android:hint="@string/personName"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:gravity="center">
 
             <EditText
                 android:id="@+id/personNumber"
-                android:hint="@string/personNumber"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:ems="10"
-                android:textSize="18sp"/>
+                android:hint="@string/personNumber"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
         </TableRow>
 
     </TableLayout>
@@ -57,38 +63,37 @@
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add"/>
+            android:text="@string/add" />
 
         <Space
             android:layout_width="5dp"
-            android:layout_height="1dp">
-        </Space>
+            android:layout_height="1dp"></Space>
 
         <Button
             android:id="@+id/findButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/find"/>
+            android:text="@string/find" />
+
         <Space
             android:layout_width="5dp"
-            android:layout_height="1dp">
-        </Space>
+            android:layout_height="1dp"></Space>
 
         <Button
             android:id="@+id/ascButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/asc" />
+
         <Space
             android:layout_width="5dp"
-            android:layout_height="1dp">
-        </Space>
+            android:layout_height="1dp"></Space>
 
         <Button
             android:id="@+id/descButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/desc"/>
+            android:text="@string/desc" />
 
     </LinearLayout>
 

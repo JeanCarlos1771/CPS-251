@@ -24,8 +24,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         repository.findPerson(name)
     }
 
-    fun deleteContact(name: String){
-        repository.deletePerson(name)
+    fun deleteContact(id: Int){
+        repository.deletePerson(id)
     }
 
     fun ascendingOrder(){

@@ -28,14 +28,14 @@ class PersonRepository(application: Application) {
         personDao?.insertPerson(person)
     }
 
-    fun deletePerson(name:String){
+    fun deletePerson(id:Int){
         coroutineScope.launch(Dispatchers.IO){
-            asyincDelete(name)
+            asyincDelete(id)
         }
     }
 
-    private suspend fun asyincDelete(name: String){
-        personDao?.deletePerson(name)
+    private suspend fun asyincDelete(id: Int){
+        personDao?.deletePerson(id)
     }
 
     fun ascending(){

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_assignment.databinding.MainFragmentBinding
+import java.lang.Integer.parseInt
 
 class MainFragment : Fragment(){
 
@@ -94,6 +95,14 @@ class MainFragment : Fragment(){
         adapter = RecyclerAdapter(R.layout.card_layout)
         binding.contactRecycler.layoutManager = LinearLayoutManager(context)
         binding.contactRecycler.adapter = adapter
+
+        adapter!!.settingListener(object: RecyclerAdapter.onItemCickListener{
+            override fun onClick(string: String) {
+                var contactId: Int = parseInt(string)
+                viewModel.deleteContact(contactId)
+            }
+
+        })
     }
 
 

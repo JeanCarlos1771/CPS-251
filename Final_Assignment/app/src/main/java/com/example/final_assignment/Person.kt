@@ -19,10 +19,6 @@ class Person {
 
     constructor(){}
 
-    constructor(id: Int,personName: String, personNumber: String){
-        this.personName = personName
-        this.personNumber = personNumber
-    }
     constructor(personName: String,personNumber: String){
         this.personName = personName
         this.personNumber = personNumber

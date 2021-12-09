@@ -14,8 +14,8 @@ interface PersonDao {
     @Query("SELECT * FROM Contacts WHERE personName LIKE '%'|| :name || '%'")
     fun findPerson(name: String): List<Person>
 
-    @Query("DELETE FROM Contacts WHERE personName = :name")
-    fun deletePerson(name: String)
+    @Query("DELETE FROM Contacts WHERE perosnId = :id")
+    fun deletePerson(id: Int)
 
     @Query("SELECT * FROM Contacts")
     fun getAllContacts(): LiveData<List<Person>>
