@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.final_assignment.databinding.MainFragmentBinding
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(){
 
     private var adapter: RecyclerAdapter? = null
     private var toastDuration = Toast.LENGTH_SHORT
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         listenerSetup()
-//        observerSetup()
+        observerSetup()
         recyclerSetup()
     }
 
@@ -58,7 +58,7 @@ class MainFragment : Fragment() {
             val name = binding.personName.text.toString()
 
             if (name != ""){
-                viewModel.findContact(binding.personName.text.toString())
+                viewModel.findContact(name)
                 clearFields()
             }else{
                 Toast.makeText(context, "Please Enter a Name",toastDuration).show()
@@ -83,8 +83,7 @@ class MainFragment : Fragment() {
 
         viewModel.getSearchResults().observe(this, Observer { contacts -> contacts?.let {
             if (it.isNotEmpty()){
-                binding.personName.setText(it[0].personName)
-                binding.personNumber.setText(it[0].personNumber)
+                adapter?.setContactList(it)
             } else {
                 Toast.makeText(context, "No Match Found", toastDuration).show()
             }

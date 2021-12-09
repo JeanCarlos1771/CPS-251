@@ -13,7 +13,7 @@ class PersonRepository(application: Application) {
     val allContacts: LiveData<List<Person>>?
 
     init {
-        val db: PersonRoomDatabase? = PersonRoomDatabase.getDatabase(application)
+        val db: PersonDatabase? = PersonDatabase.getDatabase(application)
         personDao = db?.personDao()
         allContacts = personDao?.getAllContacts()
     }

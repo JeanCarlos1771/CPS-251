@@ -3,7 +3,6 @@ package com.example.final_assignment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerAdapter(private val personItemLayout: Int) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private var ContactList: List<Person>? = null
+    var name = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(personItemLayout, parent,false)
@@ -21,6 +21,10 @@ class RecyclerAdapter(private val personItemLayout: Int) : RecyclerView.Adapter<
         ContactList.let {
             holder.itemName.text = it!![position].personName
             holder.itemPhone.text = it!![position].personNumber
+
+            holder.delete.setOnClickListener{
+                name = holder.itemName.text.toString()
+            }
         }
     }
 

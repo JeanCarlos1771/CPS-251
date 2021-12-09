@@ -1,15 +1,17 @@
 package com.example.final_assignment
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
+@Dao
 interface PersonDao {
 
     @Insert
     fun insertPerson(person: Person)
 
-    @Query("SELECT * FROM Contacts WHERE personName = :name")
+    @Query("SELECT * FROM Contacts WHERE personName LIKE '%'|| :name || '%'")
     fun findPerson(name: String): List<Person>
 
     @Query("DELETE FROM Contacts WHERE personName = :name")

@@ -6,19 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [(Person::class)], version = 1)
-abstract class PersonRoomDatabase: RoomDatabase() {
+abstract class PersonDatabase: RoomDatabase() {
 
     abstract fun personDao(): PersonDao
 
     companion object{
+        private var INSTANCE: PersonDatabase? = null
 
-        private var INSTANCE: PersonRoomDatabase? = null
-
-        internal fun getDatabase(context: Context): PersonRoomDatabase? {
+        internal fun getDatabase(context: Context): PersonDatabase? {
             if (INSTANCE == null){
-                synchronized(PersonRoomDatabase::class.java){
+                synchronized(PersonDatabase::class.java){
                     if (INSTANCE == null){
-                        INSTANCE = Room.databaseBuilder<PersonRoomDatabase>(context.applicationContext,PersonRoomDatabase::class.java,"contacts_database").build()
+                        INSTANCE = Room.databaseBuilder<PersonDatabase>(context.applicationContext,PersonDatabase::class.java,"person_Database").build()
                     }
                 }
             }
